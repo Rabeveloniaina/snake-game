@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/icon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <title>Snake Game</title>
+  </head>
+  <body>
+    <div id="scoreboard">Score : 0</div>
+    <canvas
+      width="400"
+      height="400"
+      id="game"
+      role="img"
+      aria-label="Jeu Snake"
+    ></canvas>
+    <div id="start-message" class="message" style="display: none">
+      Appuyez sur l'écran ou sur Espace pour commencer
+    </div>
+    <div id="restart-message" class="message" style="display: none">
+      Appuyez sur l'écran ou sur Espace pour recommencer
+    </div>
+    <div id="controls">
+      <button id="pause" class="pause-button">
+        <img src="img/play-icon.png" alt="Play" class="play-icon" />
+        <img src="img/pause-icon.png" alt="Pause" class="pause-icon" />
+      </button>
+    </div>
+
+    <div id="restart-container">
+      <button id="restart">Recommencer</button>
+    </div>
+    <footer>
+      <div class="social-icons">
+        <a
+          href="https://facebook.com/oli.rabe142"
+          target="_blank"
+          class="social-icon"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a
+          href="https://github.com/Rabeveloniaina"
+          target="_blank"
+          class="social-icon"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/olivio-rabeveloniaina-014217324"
+          target="_blank"
+          class="social-icon"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+      <p>
+        © 2024
+        <a href="https://rabeveloniaina.github.io/Portfolio/" target="_blank"
+          >Oli</a
+        >.
+      </p>
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>

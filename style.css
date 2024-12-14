@@ -1,0 +1,284 @@
+body,
+html {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f1f1f1;
+  font-family: "Arial", sans-serif;
+  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(45deg, #0f0e17, #1f243d, #1f2b47);
+  background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+canvas#game {
+  display: block;
+  margin: 0 auto;
+  border: 5px solid #f1f1f1;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  background-color: #181425;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+}
+
+#restart-container {
+  margin-top: 10px;
+  position: fixed;
+  bottom: 20px;
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
+#controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #232946;
+  color: #f1f1f1;
+  border: 2px solid #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3a4e72;
+}
+
+.pause-button {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.pause-button:hover {
+  background-color: #f1f1f1;
+}
+
+.pause-button:focus {
+  outline: none;
+}
+
+.pause-icon,
+.play-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.play-icon {
+  display: block; /* Icône "play" affichée par défaut */
+}
+
+.playing .play-icon {
+  display: none; /* Cache "play" quand en jeu */
+}
+
+.playing .pause-icon {
+  display: block; /* Affiche "pause" quand en jeu */
+}
+
+.paused .pause-icon {
+  display: none; /* Cache "pause" en pause */
+}
+
+.paused .play-icon {
+  display: block; /* Affiche "play" en pause */
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+  #scoreboard {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .pause-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pause-icon,
+  .play-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.message {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  animation: blink 2s infinite;
+  pointer-events: none;
+  width: 80%;
+  max-width: 320px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+#start-message {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#restart-message {
+  top: 65%;
+  transform: translateX(-50%);
+}
+
+#scoreboard {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #f1f1f1;
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  z-index: 10;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    font-size: 12px;
+  }
+  canvas#game {
+    width: 80%;
+  }
+
+  #scoreboard {
+    font-size: 0.9rem;
+    top: 100px;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+  .message {
+    font-size: 14px;
+    width: 70%;
+    max-width: 280px;
+  }
+  #restart-message {
+    top: 58%;
+    transform: translateX(-50%);
+  }
+}
+.social-icons {
+  gap: 10px;
+  font-size: 18px;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: underline;
+}
+
+footer p {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.social-icons {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ffffff;
+}
+
+.social-icon i {
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover i {
+  transform: scale(1.2);
+}
